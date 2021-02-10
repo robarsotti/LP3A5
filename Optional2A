@@ -1,0 +1,25 @@
+import java.util.Optional;
+
+public class Java8Optional {
+
+	public static void main(String[] args) {
+
+		String n = "";
+		//String n = "1";
+		//Integer numero = converteString(n).orElse(0);
+		Integer numero = converteString(n).orElseThrow(() -> new NullPointerException("Valor Vazio"));
+		System.out.println(numero);
+		
+
+	}
+	
+	public static Optional<Integer> converteString(String numeroStr){
+		try {
+			Integer integer = Integer.valueOf(numeroStr);
+			return Optional.of(integer);
+		} catch (Exception e) {
+			return Optional.empty();
+		}
+	}
+
+}
