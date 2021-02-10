@@ -1,0 +1,26 @@
+import java.util.Optional;
+
+public class Java8Optional {
+
+	public static void main(String[] args) {
+
+		//String s = "Aula LP3A5";
+		String n = "1";
+		Integer numero = converteString(n).orElse(0);
+		//Integer numero = converteString(n).orElseGet(() -> {return null;});
+		System.out.println(numero);
+		
+
+	}
+	
+	public static Optional<Integer> converteString(String numeroStr){
+		try {
+			Integer integer = Integer.valueOf(numeroStr);
+			return Optional.of(integer);
+		} catch (Exception e) {
+			return Optional.empty();
+		}
+	}
+
+}
+
